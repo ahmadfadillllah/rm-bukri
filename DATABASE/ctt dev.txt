@@ -1,0 +1,8 @@
+FW: PHP Native
+
+PHP7:
+- Kelemahan: tidak bisa mengimport data dari excel.
+- Tidak ada masalah versi PHP (Setelah data berhasil tersimpan di database).
+- Kelemahan hanya pada import data saja.
+
+Solusi: gunakan php versi 5.6 / dibawah versi 7 untuk import data.
