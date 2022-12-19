@@ -127,8 +127,8 @@ function mining_process($db_object, $min_support, $min_confidence, $start_date, 
     $x=1;
     foreach ($item_list as $key => $item) {
         $jumlah = jumlah_itemset1($dataTransaksi, $item);
-        $support = ($jumlah/$jumlah_transaksi) * 100;
-        // $support = ($jumlah * 100) / ($jumlah_transaksi * 10 );
+        // $support = ($jumlah/$jumlah_transaksi) * 100;
+        $support = ($jumlah * 100) / ($jumlah_transaksi * 10 );
         $lolos = ($support>=$min_support_relative)?"1":"0";
         $valueIn[] = "('$item','$jumlah','$support','$lolos','$id_process')";
         if($lolos){
@@ -203,7 +203,8 @@ function mining_process($db_object, $min_support, $min_confidence, $start_date, 
                         $NilaiAtribut1[] = $variance1;
                         $NilaiAtribut2[] = $variance2;
 
-                        $support2 = ($jml_itemset2/$jumlah_transaksi) * 100;
+                        // $support2 = ($jml_itemset2/$jumlah_transaksi) * 100;
+                        $support2 = ($jml_itemset2 * 100) / ($jumlah_transaksi * 10 );
                         $lolos = ($support2 >= $min_support_relative)? 1:0;
                         
                         $valueIn_itemset2[] = "('$variance1','$variance2','$jml_itemset2','$support2','$lolos','$id_process')";
@@ -314,7 +315,8 @@ function mining_process($db_object, $min_support, $min_confidence, $start_date, 
                             //jumlah item set3 dan menghitung supportnya
                             //$jml_itemset3 = get_count_itemset3($db_object, $itemset1, $itemset2, $itemset3, $start_date, $end_date);
                             $jml_itemset3 = jumlah_itemset3($dataTransaksi, $itemset1, $itemset2, $itemset3);
-                            $support3 = ($jml_itemset3/$jumlah_transaksi) * 100;
+                            // $support3 = ($jml_itemset3/$jumlah_transaksi) * 100;
+                            $support3 = ($jml_itemset3 * 100) / ($jumlah_transaksi * 10 );
                             $lolos = ($support3 >= $min_support_relative)? 1:0;
                             
                             $valueIn_itemset3[] = "('$itemset1','$itemset2','$itemset3','$jml_itemset3','$support3','$lolos','$id_process')";
@@ -592,7 +594,8 @@ function hitung_confidence($db_object, $supp_xuy, $min_support, $min_confidence,
 //    while($row1_ = $db_object->db_fetch_array($res1_)){
     //hitung nilai support $nilai_support_x seperti di itemset2
     $jml_itemset2 = jumlah_itemset2($dataTransaksi, $atribut1, $atribut2);
-    $nilai_support_x = ($jml_itemset2/$jumlah_transaksi) * 100;
+    // $nilai_support_x = ($jml_itemset2/$jumlah_transaksi) * 100;
+    $nilai_support_x = ($jml_itemset2 * 100) / ($jumlah_transaksi * 10 );
     
         $kombinasi1 = $atribut1." , ".$atribut2;
         $kombinasi2 = $atribut3;
@@ -660,7 +663,8 @@ function hitung_confidence1($db_object, $supp_xuy, $min_support, $min_confidence
 //        while($row4_ = $db_object->db_fetch_array($res4_)){
         //hitung nilai support seperti itemset1
     $jml_itemset1 = jumlah_itemset1($dataTransaksi, $atribut1);
-    $nilai_support_x = ($jml_itemset1/$jumlah_transaksi) * 100;
+    // $nilai_support_x = ($jml_itemset1/$jumlah_transaksi) * 100;
+    $nilai_support_x = ($jml_itemset1 * 100) / ($jumlah_transaksi * 10 );
     
             $kombinasi1 = $atribut1;
             $kombinasi2 = $atribut2." , ".$atribut3;
@@ -717,7 +721,8 @@ function hitung_confidence2($db_object, $supp_xuy, $min_support, $min_confidence
 //        while($row1_ = $db_object->db_fetch_array($res1_)){
         //hitung nilai support seperti itemset1
         $jml_itemset1 = jumlah_itemset1($dataTransaksi, $atribut1);
-        $nilai_support_x = ($jml_itemset1/$jumlah_transaksi) * 100;
+        // $nilai_support_x = ($jml_itemset1/$jumlah_transaksi) * 100;
+        $nilai_support_x = ($jml_itemset1 * 100) / ($jumlah_transaksi * 10 );
     
             $kombinasi1 = $atribut1;
             $kombinasi2 = $atribut2;

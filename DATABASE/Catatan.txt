@@ -1,6 +1,0 @@
-1. Tipe file excel berformat Excel 97-2003 Worksheet (.xls) / Excel 2003
-2. Ikuti masing-masing format sesuai CONTOH DATA pada folder ini
-
-Keterangan kolom:
-Kelas Asli : hasil pengujian dari data asli
-Kelas Hasil : hasil pengujian di program
