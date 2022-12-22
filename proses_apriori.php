@@ -8,6 +8,7 @@ include_once "database.php";
 include_once "fungsi.php";
 include_once "mining_apriori.php";
 include_once "display_mining_apriori.php";
+
 ?>
 
 
@@ -173,7 +174,6 @@ if (isset($_POST['submit'])) {
 
         <?php
 
-
         echo "Min Support Absolut: " . $_POST['min_support'];
         echo "<br>";
         $sql = "SELECT COUNT(*) FROM transaksi 
@@ -187,7 +187,7 @@ if (isset($_POST['submit'])) {
         echo "<br>";
         echo "Start Date: " . $_POST['range_tanggal'];
         echo "<br>";
-
+        
         $result = mining_process($db_object, $_POST['min_support'], $_POST['min_confidence'],
                 $start, $end, $id_process);
         if ($result) {
@@ -347,6 +347,7 @@ else {
                         <?php
                                         }           
                                     }
+                                    
                                     ?>
                     </div>
                 </div>
@@ -355,6 +356,16 @@ else {
         <!--end row-->
     </div>
     <!-- Include Required Prerequisites -->
+    <script>
+        window.onload = function () {
+        var loadTime = window.performance.timing.domContentLoadedEventEnd-window.performance.timing.navigationStart; 
+        min = Math.floor((loadTime/1000/60) << 0),
+        sec = Math.floor((loadTime/1000) % 60);
+        hasil = 'Waktu Proses: '+ min + ' menit ' + sec + ' detik';
+
+        alert(hasil);
+    }
+    </script>
 
     <script src="assets/js/jquery-2.1.4.min.js"></script>
     <script src="assets/js/bootstrap-datepicker.min.js"></script>
