@@ -8,6 +8,7 @@ include_once "database.php";
 include_once "fungsi.php";
 include_once "mining_hashbased.php";
 include_once "display_mining_hashbased.php";
+$starttime = microtime(true);
 ?>
 
 
@@ -172,6 +173,15 @@ if (isset($_POST['submit'])) {
         </form>
 
         <?php
+        $time = microtime();
+        $time = explode(' ', $time);
+        $time = $time[1] + $time[0];
+        $finish = $time;
+        $total_time = round(($finish - $starttime), 4);
+
+
+       $min = floor($total_time / 1000 / 60);
+       $sec = floor($total_time * 1000);
 
 
         echo "Min Support Absolut: " . $_POST['min_support'];
@@ -186,6 +196,8 @@ if (isset($_POST['submit'])) {
         echo "Min Confidence: " . $_POST['min_confidence'];
         echo "<br>";
         echo "Start Date: " . $_POST['range_tanggal'];
+        echo "<br>";
+        echo "Waktu Proses: " . $sec . " detik";
         echo "<br>";
 
         $result = mining_process($db_object, $_POST['min_support'], $_POST['min_confidence'],

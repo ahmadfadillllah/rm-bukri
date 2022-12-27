@@ -8,7 +8,7 @@ include_once "database.php";
 include_once "fungsi.php";
 include_once "mining_apriori.php";
 include_once "display_mining_apriori.php";
-
+$starttime = microtime(true);
 ?>
 
 
@@ -173,6 +173,15 @@ if (isset($_POST['submit'])) {
         </form>
 
         <?php
+         $time = microtime();
+         $time = explode(' ', $time);
+         $time = $time[1] + $time[0];
+         $finish = $time;
+         $total_time = round(($finish - $starttime), 4);
+
+
+        $min = floor($total_time / 1000 / 60);
+        $sec = floor($total_time * 1000);
 
         echo "Min Support Absolut: " . $_POST['min_support'];
         echo "<br>";
@@ -186,6 +195,8 @@ if (isset($_POST['submit'])) {
         echo "Min Confidence: " . $_POST['min_confidence'];
         echo "<br>";
         echo "Start Date: " . $_POST['range_tanggal'];
+        echo "<br>";
+        echo "Waktu Proses: " . $sec . " detik";
         echo "<br>";
         
         $result = mining_process($db_object, $_POST['min_support'], $_POST['min_confidence'],
@@ -356,7 +367,7 @@ else {
         <!--end row-->
     </div>
     <!-- Include Required Prerequisites -->
-    <script>
+    <!-- <script>
         window.onload = function () {
         var loadTime = window.performance.timing.domContentLoadedEventEnd-window.performance.timing.navigationStart; 
         min = Math.floor((loadTime/1000/60) << 0),
@@ -365,7 +376,22 @@ else {
 
         alert(hasil);
     }
-    </script>
+    </script> -->
+
+    <!-- <script>
+  window.onload = function () {
+    var loadTime = window.performance.timing.domContentLoadedEventEnd - window.performance.timing.navigationStart;
+    var min = Math.floor((loadTime / 1000 / 60) << 0);
+    var sec = Math.floor((loadTime / 1000) % 60);
+    console.log(min + ' menit ' + sec + ' detik');
+
+    // Kirim data waktu load ke server menggunakan AJAX
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', '', true);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.send(loadTime);
+}
+</script> -->
 
     <script src="assets/js/jquery-2.1.4.min.js"></script>
     <script src="assets/js/bootstrap-datepicker.min.js"></script>
