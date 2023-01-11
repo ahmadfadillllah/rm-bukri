@@ -72,7 +72,7 @@ if (isset($_GET['menu'])) {
                     </a>
 
                 </li>
-                <li class="menu-title"><span data-key="t-menu">Hash-Based</span></li>
+                <!-- <li class="menu-title"><span data-key="t-menu">Hash-Based</span></li>
                 <?php if($_SESSION['apriori_parfum_level'] == 1){ ?>
                 <li <?php echo ($menu_active == 'proses_hashbased') ? "class='active'" : ""; ?>>
                     <a class="nav-link menu-link" href="index.php?menu=proses_hashbased" aria-expanded="false"
@@ -88,7 +88,7 @@ if (isset($_GET['menu'])) {
                         aria-controls="sidebarAuth">
                         <i class="ri-bookmark-line"></i> <span data-key="t-authentication">Hasil</span>
                     </a>
-                </li>
+                </li> -->
                 <li class="menu-title"><span data-key="t-menu">Extra</span></li>
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="logout.php" aria-expanded="false" aria-controls="sidebarPages">
