@@ -21,7 +21,7 @@
                                                 <div class="row align-items-end">
                                                     <div class="col-sm-8">
                                                         <div class="p-3">
-                                                            <p class="fs-16 lh-base">ANALISIS PERBANDINGAN ALGORITMA APRIORI DAN ALGORITMA HASH BASED PADA TRANSAKSI PENJUALAN RM BUKIT KEMIRI</p>
+                                                            <p class="fs-16 lh-base">IMPLEMENTASI ALGORITMA APRIORI PADA DATA TRANSAKSI PENJUALAN MENU MAKANAN DI RM. BUKIT KEMIRI</p>
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-4">
